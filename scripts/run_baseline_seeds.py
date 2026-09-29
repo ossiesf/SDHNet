@@ -11,10 +11,13 @@ Each seed gets its own results/thresholds_random_seed{N}.npz so the
 original (unseeded) baseline run is left untouched for comparison.
 
 Usage:
-    .venv/bin/python run_baseline_seeds.py --seeds 1 2 3
+    .venv/bin/python scripts/run_baseline_seeds.py --seeds 1 2 3
 """
 
 from __future__ import annotations
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 import argparse
 import os
 from pathlib import Path

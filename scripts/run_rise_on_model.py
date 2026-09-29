@@ -6,10 +6,13 @@ arbitrary saved model checkpoint, for checking reliability of the RISE
 result across independently trained seeds.
 
 Usage:
-    .venv/bin/python run_rise_on_model.py --model sdhnet-4class-gray-seed1-best --out results/thresholds_gray_seed1.npz
+    .venv/bin/python scripts/run_rise_on_model.py --model sdhnet-4class-gray-seed1-best --out results/thresholds_gray_seed1.npz
 """
 
 from __future__ import annotations
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 import argparse
 from pathlib import Path
 

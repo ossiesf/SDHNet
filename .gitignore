@@ -12,15 +12,9 @@ _to_delete/
 *.pkl
 *.zip
 
-# Private working notes
-PLAN.md
-MVP_PLAN.md
-CAPABILITY_SHEET.md
-BLOG_AND_LINKEDIN.md
+# Local only: superseded notebooks and private working notes
+archive/
+notes/
 
-# Raw result dumps and superseded notebooks (plots and test summaries stay)
+# Raw result dumps (plots and test summaries stay)
 results/*.npz
-sdhnet_prototype.ipynb
-sdhnet_prototype-save.ipynb
-sdhnet_4class.ipynb
-suspect_cat_grid2.png

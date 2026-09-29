@@ -17,10 +17,13 @@ inference):
                  just being the biggest of four numbers, changes the picture.
 
 Usage:
-    .venv/bin/python compare_decision_rules.py
+    .venv/bin/python scripts/compare_decision_rules.py
 """
 
 from __future__ import annotations
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 import numpy as np
 from scipy import stats
 

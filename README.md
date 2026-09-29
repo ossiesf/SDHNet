@@ -35,19 +35,25 @@ Along the way I found two bugs in my own evaluation code: a test-image seed that
 
 ## Repository layout
 
+```
+notebooks/   interactive work: training, CAM analysis, the RISE experiment
+scripts/     pipeline and experiment scripts (runnable from anywhere)
+results/     plots and significance-test summaries
+```
+
 | File | Purpose |
 |---|---|
-| `download_more_images.py`, `prepare_dataset.py`, `cleanup_cat.py` | Collect and build the 4-class dataset |
-| `remove_backgrounds.py` | Background removal with rembg |
-| `sdhnet_4class_color.ipynb`, `sdhnet_4class_gray.ipynb` | Training (scratch ResNet18) |
-| `class_activation_map*.ipynb` | CAM analysis of the background shortcut |
-| `rise.py`, `rise_experiment.ipynb`, `run_rise_on_model.py`, `run_rise_full_probs.py` | Degradation experiment and threshold extraction |
-| `train_seed.py`, `run_baseline_seeds.py` | Seed replication (trained and untrained baselines) |
-| `train_pretrained.py` | ImageNet-pretrained control |
-| `compare_decision_rules.py`, `analyze_results.py` | Response-bias correction and significance tests |
-| `results/` | Threshold data, significance tests, plots |
+| `scripts/download_more_images.py`, `scripts/prepare_dataset.py`, `scripts/cleanup_cat.py` | Collect and build the 4-class dataset |
+| `scripts/remove_backgrounds.py` | Background removal with rembg |
+| `notebooks/sdhnet_4class_color.ipynb`, `notebooks/sdhnet_4class_gray.ipynb` | Training (scratch ResNet18) |
+| `notebooks/class_activation_map*.ipynb` | CAM analysis of the background shortcut |
+| `scripts/rise.py`, `notebooks/rise_experiment.ipynb`, `scripts/run_rise_on_model.py`, `scripts/run_rise_full_probs.py` | Degradation experiment and threshold extraction |
+| `scripts/train_seed.py`, `scripts/run_baseline_seeds.py` | Seed replication (trained and untrained baselines) |
+| `scripts/train_pretrained.py` | ImageNet-pretrained control |
+| `scripts/compare_decision_rules.py`, `scripts/analyze_results.py` | Response-bias correction and significance tests |
+| `scripts/make_blog_visuals.py` | Figures in this README |
 
-Data and model weights are not committed (about 3.5 GB). `prepare_dataset.py` rebuilds the dataset.
+Data (`data/`) and model weights (`models/`) are not committed (about 3.5 GB). `scripts/prepare_dataset.py` rebuilds the dataset. Scripts resolve paths from the repo root, and notebooks do the same in their first cell.
 
 ## Setup
 

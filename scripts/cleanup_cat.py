@@ -7,7 +7,7 @@ mislabeled, non-photo, or wildly out-of-distribution.
 
 Run this from the sdhnet/ directory with your local fastai environment:
     cd ~/Documents/Claude/Projects/SDH/sdhnet
-    python cleanup_cat.py
+    python scripts/cleanup_cat.py
 
 Outputs:
     data/suspect_cat_model.csv   — all training images ranked by model confidence
@@ -18,6 +18,9 @@ or manually delete images from data/sdh_500/train/cat/ and re-run
 prepare_dataset.py to rebuild the dataset.
 """
 
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 from fastai.vision.all import *
 import pandas as pd
 from PIL import Image, ImageDraw

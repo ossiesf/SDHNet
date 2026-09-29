@@ -11,10 +11,13 @@ model defaults to "fish" under high uncertainty), not a real perceptual
 result. See MVP_PLAN.md for the full explanation.
 
 Usage:
-    python analyze_results.py [--results results/thresholds_gray.npz]
+    python scripts/analyze_results.py [--results results/thresholds_gray.npz]
 """
 
 from __future__ import annotations
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 import argparse
 from pathlib import Path
 

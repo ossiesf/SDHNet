@@ -17,7 +17,7 @@ Matching Kawai's procedure:
 
 Usage (generate stimuli):
     cd ~/Documents/Claude/Projects/SDH/sdhnet
-    python rise.py --src data/sdh_500_clean/valid --dst data/sdh_rise
+    python scripts/rise.py --src data/sdh_500_clean/valid --dst data/sdh_rise
 
 Usage (run inference from another script):
     from rise import generate_rise_sequence, run_model_on_sequence

@@ -10,10 +10,13 @@ Generates the two visuals needed for the blog post / LinkedIn post:
    pattern (Friedman p=.018) breaking down once pretrained.
 
 Usage:
-    .venv/bin/python make_blog_visuals.py
+    .venv/bin/python scripts/make_blog_visuals.py
 """
 
 from __future__ import annotations
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 from pathlib import Path
 
 import numpy as np

@@ -34,7 +34,7 @@ SEED             = 42
 IMAGES_PER_CLASS = 500
 TRAIN_RATIO      = 0.8
 
-BASE = Path(__file__).parent / "data"
+BASE = Path(__file__).resolve().parent.parent / "data"
 OUT  = BASE / "sdh_500"
 
 EXTRACTED = BASE / "animals_extracted/animals/animals"

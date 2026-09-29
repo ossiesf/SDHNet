@@ -9,7 +9,7 @@ Downloads go into data/downloaded/<class>/ so the original extracted data
 is never touched. prepare_dataset.py pools all sources together.
 
 Usage:
-    python download_more_images.py
+    python scripts/download_more_images.py
 """
 
 import os
@@ -22,7 +22,7 @@ logging.getLogger("urllib3").setLevel(logging.WARNING)
 
 from icrawler.builtin import BingImageCrawler
 
-BASE = Path(__file__).parent / "data"
+BASE = Path(__file__).resolve().parent.parent / "data"
 OUT  = BASE / "downloaded"
 
 # How many to download per query. We run multiple queries per class and

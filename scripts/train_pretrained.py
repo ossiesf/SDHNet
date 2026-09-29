@@ -14,11 +14,14 @@ synsets, so pretrained weights would otherwise confound the "is this
 learned" question; this arm exists to quantify, not replace, that).
 
 Usage:
-    .venv/bin/python train_pretrained.py --mode gray
-    .venv/bin/python train_pretrained.py --mode color
+    .venv/bin/python scripts/train_pretrained.py --mode gray
+    .venv/bin/python scripts/train_pretrained.py --mode color
 """
 
 from __future__ import annotations
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 import argparse
 import time
 from pathlib import Path

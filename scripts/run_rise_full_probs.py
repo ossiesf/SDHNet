@@ -13,10 +13,13 @@ Output: results/probs_<model>.npz with:
   classes    — CLASSES, for reference
 
 Usage:
-    .venv/bin/python run_rise_full_probs.py --model sdhnet-4class-gray-best --out results/probs_original.npz
+    .venv/bin/python scripts/run_rise_full_probs.py --model sdhnet-4class-gray-best --out results/probs_original.npz
 """
 
 from __future__ import annotations
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 import argparse
 import time
 from pathlib import Path

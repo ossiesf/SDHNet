@@ -13,7 +13,7 @@ Install:
 
 Usage:
     cd ~/Documents/Claude/Projects/SDH/sdhnet
-    python remove_backgrounds.py
+    python scripts/remove_backgrounds.py
 
 The script is resumable — already-processed files are skipped.
 Failed files are logged to data/rembg_failures.txt.
@@ -25,6 +25,9 @@ Why gray background (128,128,128) rather than white:
     is much softer and the model focuses on internal animal texture.
 """
 
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 from pathlib import Path
 from PIL import Image
 import io, sys, time
@@ -126,5 +129,5 @@ if failures:
     print(f"  Failure log → {fail_log}")
 
 print(f"\nClean dataset → {DST.resolve()}")
-print("Next: update sdhnet_4class.ipynb to point DATA_PATH at 'data/sdh_500_clean'")
+print("Next: update notebooks/sdhnet_4class_*.ipynb to point DATA_PATH at 'data/sdh_500_clean'")
 print("      and retrain.")

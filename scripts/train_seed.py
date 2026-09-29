@@ -14,10 +14,13 @@ same logic as run_baseline_seeds.py, applied to the trained model instead of
 the untrained baseline.
 
 Usage:
-    .venv/bin/python train_seed.py --seed 1
+    .venv/bin/python scripts/train_seed.py --seed 1
 """
 
 from __future__ import annotations
+import os
+from pathlib import Path
+os.chdir(Path(__file__).resolve().parent.parent)  # repo root, so data/, models/, results/ resolve from anywhere
 import argparse
 import time
 from pathlib import Path
