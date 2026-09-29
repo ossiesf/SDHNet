@@ -1,0 +1,11 @@
+=== Descriptives (excl. fish — flagged as response-bias artifact) ===
+bird   n=100  mean=13.50  median=12.0  sd=3.23
+cat    n=100  mean=11.20  median=10.0  sd=3.85
+snake  n=100  mean=10.24  median=10.0  sd=4.88
+
+=== Omnibus: Kruskal-Wallis (bird, cat, snake) ===
+H=80.818  p=0.000000
+
+=== Pairwise: Mann-Whitney U, snake vs each, Holm-corrected (m=2) ===
+snake vs bird: U=1782.5  raw_p=0.0000  holm_p=0.0000  rank_biserial_r=0.643  SIGNIFICANT (a=.05)
+snake vs cat: U=4033.0  raw_p=0.0158  holm_p=0.0158  rank_biserial_r=0.193  SIGNIFICANT (a=.05)

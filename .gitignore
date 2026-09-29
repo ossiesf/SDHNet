@@ -1,0 +1,26 @@
+# Environments and caches
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
+# Data, weights, and archives (too large for git; see README)
+data/
+models/
+_to_delete/
+*.pth
+*.pkl
+*.zip
+
+# Private working notes
+PLAN.md
+MVP_PLAN.md
+CAPABILITY_SHEET.md
+BLOG_AND_LINKEDIN.md
+
+# Raw result dumps and superseded notebooks (plots and test summaries stay)
+results/*.npz
+sdhnet_prototype.ipynb
+sdhnet_prototype-save.ipynb
+sdhnet_4class.ipynb
+suspect_cat_grid2.png

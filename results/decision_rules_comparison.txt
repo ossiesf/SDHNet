@@ -1,0 +1,105 @@
+
+======================================================================
+original
+======================================================================
+  [raw (argmax)]
+    bird    mean= 13.42  median= 12.0  sd= 3.23  never_detected=12/100
+    cat     mean= 12.10  median= 10.5  sd= 4.37  never_detected=18/100
+    fish    mean=  7.31  median=  1.0  sd= 8.79  never_detected=24/100
+    snake   mean= 12.50  median= 10.0  sd= 6.00  never_detected=30/100
+  step-1 prior (this model's default bias): bird=0.002, cat=0.021, fish=0.871, snake=0.106
+  [debiased (equal-prior argmax)]
+    bird    mean= 11.06  median= 11.0  sd= 2.93  never_detected=5/100
+    cat     mean= 11.88  median= 10.0  sd= 5.23  never_detected=22/100
+    fish    mean= 18.84  median= 21.0  sd= 5.50  never_detected=85/100
+    snake   mean= 12.73  median= 12.5  sd= 8.15  never_detected=45/100
+  [reject (confidence > 0.4)]
+    bird    mean= 13.50  median= 12.0  sd= 3.22  never_detected=12/100
+    cat     mean= 12.23  median= 10.5  sd= 4.44  never_detected=19/100
+    fish    mean=  7.31  median=  1.0  sd= 8.79  never_detected=24/100
+    snake   mean= 12.53  median= 10.0  sd= 5.98  never_detected=30/100
+  Kruskal-Wallis on debiased thresholds (all 4 classes): H=86.59  p=0.0000
+
+======================================================================
+seed1
+======================================================================
+  [raw (argmax)]
+    bird    mean= 13.27  median= 11.5  sd= 3.81  never_detected=18/100
+    cat     mean= 14.50  median= 11.0  sd= 5.49  never_detected=40/100
+    fish    mean=  7.76  median=  1.0  sd= 8.43  never_detected=25/100
+    snake   mean= 14.70  median= 12.0  sd= 6.38  never_detected=46/100
+  step-1 prior (this model's default bias): bird=0.006, cat=0.019, fish=0.840, snake=0.135
+  [debiased (equal-prior argmax)]
+    bird    mean=  9.43  median= 10.0  sd= 4.64  never_detected=6/100
+    cat     mean= 13.32  median= 10.0  sd= 6.73  never_detected=40/100
+    fish    mean= 20.80  median= 21.0  sd= 1.35  never_detected=97/100
+    snake   mean= 17.68  median= 21.0  sd= 6.41  never_detected=77/100
+  [reject (confidence > 0.4)]
+    bird    mean= 13.41  median= 12.0  sd= 3.86  never_detected=19/100
+    cat     mean= 14.63  median= 11.5  sd= 5.49  never_detected=41/100
+    fish    mean=  8.04  median=  1.0  sd= 8.59  never_detected=27/100
+    snake   mean= 15.03  median= 17.0  sd= 6.44  never_detected=50/100
+  Kruskal-Wallis on debiased thresholds (all 4 classes): H=161.63  p=0.0000
+
+======================================================================
+seed2
+======================================================================
+  [raw (argmax)]
+    bird    mean= 13.25  median= 12.0  sd= 3.97  never_detected=17/100
+    cat     mean= 11.47  median= 10.0  sd= 5.02  never_detected=18/100
+    fish    mean=  6.05  median=  1.0  sd= 8.27  never_detected=19/100
+    snake   mean= 12.50  median= 10.5  sd= 6.06  never_detected=29/100
+  step-1 prior (this model's default bias): bird=0.005, cat=0.029, fish=0.902, snake=0.064
+  [debiased (equal-prior argmax)]
+    bird    mean= 10.33  median= 11.0  sd= 3.99  never_detected=5/100
+    cat     mean= 10.91  median=  9.0  sd= 5.64  never_detected=20/100
+    fish    mean= 17.37  median= 21.0  sd= 7.00  never_detected=73/100
+    snake   mean= 12.19  median= 10.0  sd= 6.54  never_detected=28/100
+  [reject (confidence > 0.4)]
+    bird    mean= 13.29  median= 12.0  sd= 3.95  never_detected=17/100
+    cat     mean= 11.51  median= 10.0  sd= 5.00  never_detected=18/100
+    fish    mean=  6.06  median=  1.0  sd= 8.29  never_detected=19/100
+    snake   mean= 12.52  median= 10.5  sd= 6.02  never_detected=29/100
+  Kruskal-Wallis on debiased thresholds (all 4 classes): H=73.19  p=0.0000
+
+======================================================================
+seed3
+======================================================================
+  [raw (argmax)]
+    bird    mean= 13.42  median= 12.0  sd= 3.79  never_detected=19/100
+    cat     mean= 12.19  median= 10.0  sd= 4.96  never_detected=23/100
+    fish    mean=  6.41  median=  1.0  sd= 8.60  never_detected=23/100
+    snake   mean= 12.72  median= 10.0  sd= 6.13  never_detected=31/100
+  step-1 prior (this model's default bias): bird=0.000, cat=0.014, fish=0.898, snake=0.087
+  [debiased (equal-prior argmax)]
+    bird    mean=  9.89  median= 10.0  sd= 1.95  never_detected=2/100
+    cat     mean= 11.67  median=  9.0  sd= 5.82  never_detected=25/100
+    fish    mean= 20.13  median= 21.0  sd= 3.64  never_detected=93/100
+    snake   mean= 14.74  median= 21.0  sd= 7.71  never_detected=57/100
+  [reject (confidence > 0.4)]
+    bird    mean= 13.44  median= 12.0  sd= 3.79  never_detected=19/100
+    cat     mean= 12.26  median= 10.0  sd= 4.85  never_detected=23/100
+    fish    mean=  6.62  median=  1.0  sd= 8.71  never_detected=24/100
+    snake   mean= 12.72  median= 10.0  sd= 6.13  never_detected=31/100
+  Kruskal-Wallis on debiased thresholds (all 4 classes): H=132.94  p=0.0000
+
+======================================================================
+pretrained_gray
+======================================================================
+  [raw (argmax)]
+    bird    mean= 11.16  median= 10.0  sd= 2.99  never_detected=5/100
+    cat     mean= 11.04  median= 10.0  sd= 3.80  never_detected=11/100
+    fish    mean=  4.08  median=  1.0  sd= 6.78  never_detected=8/100
+    snake   mean= 11.60  median= 10.0  sd= 4.34  never_detected=16/100
+  step-1 prior (this model's default bias): bird=0.036, cat=0.009, fish=0.931, snake=0.024
+  [debiased (equal-prior argmax)]
+    bird    mean=  9.68  median= 10.0  sd= 4.05  never_detected=2/100
+    cat     mean=  9.82  median=  9.0  sd= 3.32  never_detected=5/100
+    fish    mean= 15.73  median= 21.0  sd= 6.35  never_detected=51/100
+    snake   mean=  9.30  median=  9.0  sd= 4.57  never_detected=9/100
+  [reject (confidence > 0.4)]
+    bird    mean= 11.19  median= 10.0  sd= 2.97  never_detected=5/100
+    cat     mean= 11.06  median= 10.0  sd= 3.79  never_detected=11/100
+    fish    mean=  4.08  median=  1.0  sd= 6.78  never_detected=8/100
+    snake   mean= 11.60  median= 10.0  sd= 4.34  never_detected=16/100
+  Kruskal-Wallis on debiased thresholds (all 4 classes): H=96.83  p=0.0000
