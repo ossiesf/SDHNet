@@ -7,7 +7,7 @@ non-flat bias seen in the single-init baseline (bird/fish essentially
 never detected, cat/snake favored, snake median threshold = step 1) is
 a property of the architecture in general, or a fluke of that one seed.
 
-Each seed gets its own results/thresholds_random_seed{N}.npz so the
+Each seed gets its own results/raw/thresholds_random_seed{N}.npz so the
 original (unseeded) baseline run is left untouched for comparison.
 
 Usage:
@@ -52,7 +52,7 @@ def main():
     ap.add_argument("--seeds", type=int, nargs="+", default=[1, 2, 3])
     args = ap.parse_args()
 
-    os.makedirs("results", exist_ok=True)
+    os.makedirs("results/raw", exist_ok=True)
     dls = build_dls()
 
     for seed in args.seeds:
@@ -67,7 +67,7 @@ def main():
             t = r["threshold"] if r["threshold"] is not None else N_STEPS + 1
             thresholds[r["class"]].append(t)
 
-        out_path = f"results/thresholds_random_seed{seed}.npz"
+        out_path = f"results/raw/thresholds_random_seed{seed}.npz"
         np.savez(out_path, **{cls: np.array(v) for cls, v in thresholds.items()})
         print(f"Saved -> {out_path}")
         for cls in CLASSES:

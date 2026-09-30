@@ -6,14 +6,14 @@ probability trajectory (not just the final threshold), so alternate
 decision rules (de-biasing, rejection) can be computed post-hoc without
 re-running inference.
 
-Output: results/probs_<model>.npz with:
+Output: results/raw/probs_<model>.npz with:
   probs      — float array (n_images, 20, n_classes)
   true_idx   — int array (n_images,) index into CLASSES
   filenames  — array of str (n_images,)
   classes    — CLASSES, for reference
 
 Usage:
-    .venv/bin/python scripts/run_rise_full_probs.py --model sdhnet-4class-gray-best --out results/probs_original.npz
+    .venv/bin/python scripts/run_rise_full_probs.py --model sdhnet-4class-gray-best --out results/raw/probs_original.npz
 """
 
 from __future__ import annotations

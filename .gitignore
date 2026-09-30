@@ -15,6 +15,3 @@ _to_delete/
 # Local only: superseded notebooks and private working notes
 archive/
 notes/
-
-# Raw result dumps (plots and test summaries stay)
-results/*.npz

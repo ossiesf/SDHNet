@@ -6,7 +6,7 @@ already-collected full probability trajectories (no retraining, no new
 inference):
 
   1. raw       — argmax(P(class)), the original rule. Sanity-checked against
-                 results/thresholds_gray*.npz (should match exactly).
+                 results/raw/thresholds_gray*.npz (should match exactly).
   2. debiased  — argmax(log P(class) - log prior(class)), where prior(class)
                  is THIS model's own mean predicted probability for that
                  class at RISE step 1 (its "no real signal" default rate).
@@ -32,11 +32,11 @@ N_STEPS = 20
 CONF_THRESHOLD = 0.4  # meaningfully above 0.25 chance level for 4 classes
 
 MODELS = {
-    "original":        "results/probs_original.npz",
-    "seed1":           "results/probs_seed1.npz",
-    "seed2":           "results/probs_seed2.npz",
-    "seed3":           "results/probs_seed3.npz",
-    "pretrained_gray": "results/probs_pretrained_gray.npz",
+    "original":        "results/raw/probs_original.npz",
+    "seed1":           "results/raw/probs_seed1.npz",
+    "seed2":           "results/raw/probs_seed2.npz",
+    "seed3":           "results/raw/probs_seed3.npz",
+    "pretrained_gray": "results/raw/probs_pretrained_gray.npz",
 }
 
 

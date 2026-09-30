@@ -11,7 +11,7 @@ model defaults to "fish" under high uncertainty), not a real perceptual
 result. See MVP_PLAN.md for the full explanation.
 
 Usage:
-    python scripts/analyze_results.py [--results results/thresholds_gray.npz]
+    python scripts/analyze_results.py [--results results/raw/thresholds_gray.npz]
 """
 
 from __future__ import annotations
@@ -39,11 +39,29 @@ def holm_correct(pvals: list[float]) -> list[float]:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--results", default="results/thresholds_gray.npz")
+    ap.add_argument("--results", default="results/raw/thresholds_gray.npz")
     args = ap.parse_args()
+
+    if args.results.endswith("thresholds_gray.npz"):
+        print("NOTE: original single-model run, raw argmax decision rule.")
+        print("This is the 'snake detected earliest' result that did NOT survive replication:")
+        print("across 4 seeds it was response bias (models default to 'fish' under heavy")
+        print("degradation). After debiasing, snake was detected LATEST in all 4 scratch")
+        print("models, and an ImageNet-pretrained control erased that ordering too.")
+        print("Current results: results/decision_rules_comparison.txt and the README.")
+        print()
 
     data = np.load(args.results)
     bird, cat, snake = data["bird"], data["cat"], data["snake"]
+
+    if "thresholds_gray.npz" in str(args.results):
+        print("NOTE: original single-model run, raw argmax decision rule.")
+        print("This is the 'snake detected earliest' result that did NOT survive replication:")
+        print("across 4 seeds it was response bias (models default to 'fish' under heavy")
+        print("degradation). After debiasing, snake was detected LATEST in all 4 scratch")
+        print("models, and an ImageNet-pretrained control erased that ordering too.")
+        print("Current results: results/decision_rules_comparison.txt and the README.")
+        print()
 
     print("=== Descriptives (excl. fish — flagged as response-bias artifact) ===")
     for name, arr in [("bird", bird), ("cat", cat), ("snake", snake)]:

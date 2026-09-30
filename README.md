@@ -4,13 +4,13 @@ Humans detect snakes faster than other animals when an image is hard to see. Kaw
 
 **Short answer: no.** The first result said yes. It did not survive replication, bias correction, or a pretrained control, and working out why was the useful part.
 
-![RISE unscrambling sequence](results/rise_sequence.gif)
+![Phase-scrambling sequence, noise to image](results/rise_sequence.gif)
 
 ## What I built
 
 - **Dataset:** 4 classes (bird, cat, fish, snake), 500 images per class (400 train / 100 valid), assembled from a public animals dataset, scraped supplements, and Imagenette. Backgrounds removed with rembg (U2Net).
 - **Model:** ResNet18 trained from scratch (no pretrained weights) with fastai / PyTorch, one-cycle schedule, early stopping on validation loss.
-- **Degradation experiment:** each test image is revealed step by step (RISE-style). The detection threshold is the step at which the model first gets the class right and stays right.
+- **Degradation experiment:** each test image is revealed in 20 steps by phase scrambling (Random Image Structure Evolution, Sadr & Sinha 2004): the phase spectrum is interpolated from noise back to the original while luminance and contrast stay fixed. The detection threshold is the step at which the model first gets the class right.
 
 ## Findings
 
@@ -22,7 +22,12 @@ Humans detect snakes faster than other animals when an image is hard to see. Kaw
 
 **4. The fish default is the robust finding.** It got *stronger* in the pretrained model (93.1% prior), so it is not a small-data symptom.
 
-Along the way I found two bugs in my own evaluation code: a test-image seed that was not reproducible, and a missing normalization step that fed the model corrupted input. Every number above comes from after those fixes.
+Along the way I found two silent bugs in my own evaluation harness, neither of which ever raised an error:
+
+- **Non-reproducible stimuli.** Each image's scramble seed came from Python's built-in `hash()`, which is randomized per process (`PYTHONHASHSEED`). Every run quietly generated different stimuli, so cross-run comparisons were invalid. Fixed with a deterministic `zlib.crc32` hash.
+- **Missing normalization.** Every custom evaluation script fed the model unnormalized pixels, unlike what it was trained on.
+
+Every number above comes from after those fixes.
 
 ![Debiased thresholds across seeds and the pretrained control](results/clincher_plot.png)
 
@@ -33,12 +38,17 @@ Along the way I found two bugs in my own evaluation code: a test-image seed that
 - No human data. Any comparison to Kawai & He is conceptual, not statistical.
 - Background removal may leave class-specific edge artifacts (thin snake bodies segment differently from fish); not yet audited.
 
+## Results files
+
+- `results/decision_rules_comparison.txt`: raw vs. debiased detection thresholds for all 4 scratch models and the pretrained control. **This is the current result.**
+- `results/significance_test.txt`: significance tests on the **original single-model run**, the "snake detected earliest" result that did not survive replication. Kept for the record; its header says so.
+
 ## Repository layout
 
 ```
-notebooks/   interactive work: training, CAM analysis, the RISE experiment
+notebooks/   interactive work: training, CAM analysis, the degradation experiment
 scripts/     pipeline and experiment scripts (runnable from anywhere)
-results/     plots and significance-test summaries
+results/     plots and summaries; results/raw/ holds the per-image thresholds and probabilities behind them
 ```
 
 | File | Purpose |
